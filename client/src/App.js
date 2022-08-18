@@ -11,8 +11,11 @@ import SignIn from "./pages/SignIn";
 import AllCompanies from "./pages/admin/AllCompanies";
 import AllUsers from "./pages/admin/AllUsers";
 import EdituserRole from "./pages/admin/adminEdits/EdituserRole";
-import AdminProfile from "./pages/admin/adminProfile/AdminProfile";
-import Editadminprofile from "./pages/admin/adminEdits/Editadminprofile";
+import Profile from "./pages/UserProfile/Profile";
+import Editprofile from "./pages/UserProfile/Editprofile";
+import UserCompanies from "./pages/user/UserCompanies";
+import EditComapny from "./pages/user/UserEdits/EditComapny";
+import DeleteCompany from "./pages/user/UserEdits/DeleteCompany";
 
 const Container = styled.div`
   display: flex;
@@ -57,15 +60,26 @@ function App() {
                   path="admin-userEdits"
                   element={<EdituserRole />}
                 ></Route>
+                <Route exact path="profile" element={<Profile />}></Route>
                 <Route
                   exact
-                  path="admin-profile"
-                  element={<AdminProfile />}
+                  path="Edit-profile"
+                  element={<Editprofile />}
                 ></Route>
                 <Route
                   exact
-                  path="Admin-Edit"
-                  element={<Editadminprofile />}
+                  path="user-companies"
+                  element={<UserCompanies />}
+                ></Route>
+                <Route
+                  exact
+                  path="Edit-company"
+                  element={<EditComapny />}
+                ></Route>
+                <Route
+                  exact
+                  path="delete-company"
+                  element={<DeleteCompany />}
                 ></Route>
               </Routes>
             </Wrapper>

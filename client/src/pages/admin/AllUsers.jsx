@@ -81,7 +81,7 @@ const columns = [
   },
 ];
 
-const AllUsers = (props) => {
+const AllUsers = () => {
   const [tableData, setTableData] = useState([]);
 
   useEffect(() => {
@@ -89,18 +89,12 @@ const AllUsers = (props) => {
       try {
         const Datares = await axios.get("/user");
         setTableData(Datares.data);
-        console.log(Datares.data)
       } catch (error) {
         console.log(error);
       }
     };
     fetchData();
   }, []);
-
-  const currentlySelected = (params) => {
-    const value = params.id;
-    console.log(value);
-  };
 
   return (
     <Box sx={{ height: "73.8vh", width: "100%" }}>
@@ -110,7 +104,6 @@ const AllUsers = (props) => {
         columns={columns}
         pageSize={8}
         rowsPerPageOptions={[10]}
-        onCellClick={currentlySelected}
       />
     </Box>
   );

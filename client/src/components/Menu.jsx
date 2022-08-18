@@ -79,29 +79,27 @@ const Menu = ({ darkMode, setDarkMode }) => {
             Add Company
           </Item>
         </Link>
-        <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+        <Link
+          to="/user-companies"
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
           <Item>
             <PreviewIcon />
             User Company
           </Item>
         </Link>
-        <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
-          <Item>
-            <PersonIcon />
-            User Profile
-          </Item>
-        </Link>
         <Hr />
-        <Title>Admin Access Only</Title>
         <Link
-          to="/admin-profile"
+          to="/profile"
           style={{ textDecoration: "none", color: "inherit" }}
         >
           <Item>
             <PersonIcon />
-            Admin profile
+            Profile
           </Item>
         </Link>
+        <Hr />
+        <Title>Admin Access Only</Title>
         <Link
           to="/admin-allUsers"
           style={{ textDecoration: "none", color: "inherit" }}

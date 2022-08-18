@@ -57,8 +57,8 @@ const Button = styled.button`
     color: black;
   }
 `;
-const Editadminprofile = () => {
-  let { currentUser } = useSelector((state) => state.user);
+const Editprofile = () => {
+  const { currentUser } = useSelector((state) => state.user);
   const proff = currentUser.proffession;
   const proff2 = proff.toString(", ");
   const [firstname, setFirstname] = useState("");
@@ -84,9 +84,7 @@ const Editadminprofile = () => {
         proffession: proffession === "" ? currentUser.proffession : proffession,
       };
       await axios.put(`/user/${currentUser._id}`, payload);
-      // const user = await axios.get(`/user/${currentUser._id}`);
-      // currentUser = user
-      navigate("/admin-profile");
+      navigate("/profile");
     } catch (error) {
       console.log(error);
     }
@@ -141,4 +139,4 @@ const Editadminprofile = () => {
   );
 };
 
-export default Editadminprofile;
+export default Editprofile;

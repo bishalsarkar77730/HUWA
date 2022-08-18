@@ -3,7 +3,6 @@ import "../Styles/Datagrid.css";
 import axios from "axios";
 import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
-// import DeleteIcon from "@mui/icons-material/Delete";
 
 const columns = [
   { field: "_id", headerName: "Serial number", width: 250 },
@@ -37,13 +36,6 @@ const columns = [
     width: 160,
     editable: true,
   },
-  // {
-  //   field: "delete",
-  //   headerName: "Delete",
-  //   sortable: false,
-  //   width: 10,
-  //   renderCell: () => <DeleteIcon />,
-  // },
 ];
 
 const AllCompanies = () => {

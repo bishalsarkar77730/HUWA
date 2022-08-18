@@ -1,9 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import "./Adminprofile.css";
+import "./UserProfile.css";
 
-const AdminProfile = () => {
+const Profile = () => {
   const { currentUser } = useSelector((state) => state.user);
   const proff = currentUser.proffession;
   const proff2 = proff.toString(", ");
@@ -44,7 +44,7 @@ const AdminProfile = () => {
         </div>
         <Link
           id="contactBtn"
-          to="/Admin-Edit"
+          to="/Edit-profile"
           style={{ textDecoration: "none", color: "inherit" }}
         >
           Edit
@@ -54,4 +54,4 @@ const AdminProfile = () => {
   );
 };
 
-export default AdminProfile;
+export default Profile;
