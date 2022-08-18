@@ -1,0 +1,498 @@
+*,
+*::before,
+*::after,
+:root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@import "https://fonts.googleapis.com/css?family=Overlock:400,400i,700|Oleo+Script";
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  color: #252934;
+  background: #fafafa;
+  font-size: 62.5%;
+  font-family: "Overlock", Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+a,
+a:visited {
+  color: #252934;
+  font-size: 1.4rem;
+  text-decoration: none;
+  transition: 200ms;
+}
+
+a:hover,
+a:active {
+  color: #f300b4;
+}
+
+/*****************
+ *****************
+   HEADER STYLES
+ *****************
+ *****************/
+
+#welcome-section {
+  background: #202736;
+  background: linear-gradient(to bottom, #181d23 0%, #202736 80%);
+  background-attachment: fixed;
+  background-size: cover;
+  position: relative;
+  min-height: 100vh;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+#welcome-section::before {
+  content: "";
+  position: fixed;
+  background: url(../../utils/images/Stars.svg);
+  background-attachment: fixed;
+  width: 100%;
+  min-height: 100vh;
+  z-index: -1;
+  opacity: 0;
+  animation: stars-move-in 1000ms 300ms forwards;
+}
+
+@keyframes stars-move-in {
+  from {
+    background-position-y: -100px;
+  }
+  to {
+    opacity: 1;
+    background-position-y: 0;
+  }
+}
+
+.forest {
+  position: absolute;
+  bottom: -300px;
+  left: 0;
+  background: url(../../utils/images/Trees.svg) bottom left repeat-x;
+  background-size: cover;
+  width: 100%;
+  height: 80%;
+  opacity: 0;
+  animation: forest-move-in 1000ms 500ms forwards;
+  border-bottom: 300px solid #181d23;
+}
+
+@keyframes forest-move-in {
+  from {
+    background-position-y: 150%;
+  }
+  to {
+    opacity: 1;
+    background-position-y: 100%;
+  }
+}
+
+.silhouette {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: url(../../utils/images/Silhouette.svg) bottom left no-repeat;
+  width: 50%;
+  height: 50%;
+  opacity: 0;
+  animation: silhouette-move-in 1000ms 800ms forwards;
+  z-index: 99999999;
+}
+
+@keyframes silhouette-move-in {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    opacity: 1;
+    background-position-x: 50%;
+  }
+}
+
+.moon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  position: fixed;
+  background: url(../../utils/images/Moon.svg) right 150% no-repeat;
+  background-size: 40% 40%;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0;
+  animation: moon-move-in 1.2s 1s forwards;
+}
+
+@keyframes moon-move-in {
+  from {
+    opacity: 0;
+    background-position: right 150%;
+  }
+  to {
+    opacity: 1;
+    background-position: top right;
+  }
+}
+
+/* Copy and CTA */
+#welcome-section .container {
+  width: fit-content;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  right: 25%;
+  opacity: 0;
+  transform: translate(0, -50%);
+  animation: text-fade-in 1000ms 800ms forwards;
+}
+
+@keyframes text-fade-in {
+  from {
+    right: 0;
+  }
+  to {
+    opacity: 1;
+    right: 25%;
+  }
+}
+
+#welcome-section .container h1 {
+  font-size: 4rem;
+  font-weight: normal;
+  font-style: italic;
+  color: #fafafa;
+  line-height: 3rem;
+}
+
+#welcome-section .container h1 .line:first-child {
+  margin-left: 1rem;
+}
+
+#welcome-section .container h1 .line:last-child {
+  margin-left: 2rem;
+}
+
+.line {
+  display: block;
+}
+
+.color {
+  color: #f300b4;
+  font-style: italic;
+}
+
+@media only screen and (max-width: 649px) {
+  #welcome-section .container {
+    right: 50%;
+    top: 10%;
+    width: 80%;
+    transform: translate(50%, 0);
+    animation: text-fade-in 1000ms 800ms forwards;
+  }
+
+  @keyframes text-fade-in {
+    from {
+      right: 0;
+    }
+    to {
+      opacity: 1;
+      right: 50%;
+    }
+  }
+
+  .silhouette {
+    width: 100%;
+  }
+}
+
+/*****************
+ *****************
+   ABOUT STYLES
+ *****************
+ *****************/
+
+#about {
+  height: 100%;
+  min-height: 100vh;
+  font-size: 1.4rem;
+  position: relative;
+  background: #fafafa;
+  clip-path: polygon(0 0, 20% 5%, 100% 0, 100% 100%, 80% 95%, 0 100%);
+  z-index: 5;
+  background: #8e8b8b url(../../utils/images/about.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+#about .wrapper {
+  padding: 15rem 10rem 12rem;
+  height: 100%;
+  min-height: 100vh;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+#about article {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem;
+  padding: 3rem 0;
+}
+
+#about .title {
+  grid-column-end: span 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#about .title h3 {
+  font-size: 2.4rem;
+}
+
+#about .separator {
+  background: #f300b4;
+  width: 150px;
+  height: 2px;
+  margin: 1rem 0;
+  padding: 0;
+}
+
+#about .subtitle {
+  font-size: 1.6rem;
+  text-align: center;
+  color: inherit;
+  padding-bottom: 1.5rem;
+  color: white;
+}
+
+#about p {
+  padding-bottom: 1.5rem;
+  color: white;
+  line-height: 1.9rem;
+}
+
+#about .desc.full {
+  grid-column-end: span 4;
+  margin-bottom: 2rem;
+}
+
+#about .desc {
+  grid-column-end: span 2;
+  background: #050505aa;
+  padding: 2rem;
+  text-align: justify;
+}
+
+@media only screen and (max-width: 1149px) {
+  #about article {
+    grid-template-columns: 1fr;
+    grid-gap: 0;
+  }
+  #about .desc.full {
+    grid-column-end: -1;
+  }
+
+  #about .desc {
+    grid-column-end: -1;
+  }
+}
+@media only screen and (max-width: 949px) {
+  #about {
+    clip-path: polygon(0 0, 20% 2%, 100% 0, 100% 100%, 80% 98%, 0 100%);
+    background-position: top left;
+    background-size: cover;
+  }
+}
+@media only screen and (max-width: 649px) {
+  #about .wrapper {
+    padding: 10rem 2rem 8rem;
+  }
+}
+
+/*****************
+ *****************
+   CONTACT STYLES
+ *****************
+ *****************/
+
+#contact {
+  background: #181d23 url(../../utils/images/envelope.svg) no-repeat right;
+  clip-path: polygon(0 0, 20% 100px, 100% 0, 100% 100%, 0 100%);
+  color: #fafafa;
+  min-height: 100vh;
+  width: 100%;
+  padding: 5rem 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: -100px 0 140px;
+  z-index: 1;
+}
+
+#contact .container {
+  width: 70%;
+  max-width: 1200px;
+  padding: 25vh 0;
+}
+
+#contact .container .heading-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+#contact .heading-wrapper .social a {
+  color: #fafafa;
+}
+
+#contact .heading-wrapper .social a:hover {
+  color: #f300b4;
+}
+
+.heading-wrapper .heading .title {
+  font-size: 3rem;
+  line-height: 2.4rem;
+}
+
+.heading-wrapper .heading .separator {
+  background: #f300b4;
+  width: 150px;
+  height: 2px;
+  margin: 1rem 0;
+}
+
+.heading-wrapper .heading .subtitle {
+  font-size: 1.4rem;
+}
+
+#contact-form {
+  margin-top: 1rem;
+}
+
+input,
+textarea {
+  border: none;
+  padding: 1rem;
+  font-family: "Overlock", Arial, Helvetica, sans-serif;
+  width: 100%;
+  height: 40%;
+  transition: 200ms;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="text"]:not(output):not(:focus),
+input[type="email"]:not(output):not(:focus),
+textarea {
+  border-bottom: 1px solid #fafafa;
+  background: transparent;
+  color: #fafafa;
+  font-size: 1.8rem;
+  box-shadow: none;
+  outline: none;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="text"]:not(output):focus,
+input[type="email"]:not(output):focus,
+textarea:focus {
+  border-bottom: 1px solid #f300b4;
+}
+
+input[type="submit"] {
+  background: #f300b4;
+  color: #fafafa;
+  margin-top: 1rem;
+  width: auto;
+  float: right;
+}
+
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+  cursor: pointer;
+  color: #333;
+  background: #fafafa;
+}
+
+::placeholder {
+  color: #fafafa;
+}
+
+/** Email to avoid spam **/
+.mail {
+  display: inline-block;
+  font-style: italic;
+}
+
+.mail .at,
+.mail .dot {
+  font-size: 0.9rem;
+  margin: 0 0.1rem;
+  color: #f300b4;
+}
+
+@media only screen and (max-width: 1149px) {
+  #contact .social a {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 649px) {
+  #contact {
+    clip-path: polygon(0 0, 20% 5%, 100% 0, 100% 100%, 0 100%);
+    padding: 0;
+  }
+}
+
+/*****************
+ *****************
+   FOOTER STYLES
+ *****************
+ *****************/
+
+footer {
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: #fafafa;
+  z-index: 1;
+}
+
+footer .wrapper {
+  display: flex;
+  width: 100%;
+  padding: 2rem;
+  max-width: 1400px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media only screen and (max-width: 649px) {
+  footer .wrapper {
+    flex-direction: column;
+  }
+
+  footer .wrapper h3 {
+    padding-bottom: 0.8rem;
+  }
+}

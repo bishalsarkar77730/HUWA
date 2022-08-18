@@ -1,0 +1,39 @@
+.MuiDataGrid-columnHeaders {
+  background-color: #3ea6ff;
+  border-top-left-radius: 20px !important;
+  border-top-right-radius: 20px !important;
+  color: white;
+}
+
+.MuiDataGrid-virtualScrollerRenderZone {
+  background-color: rgb(45, 45, 45);
+  color: white;
+}
+
+.MuiDataGrid-footerContainer {
+  background-color: rgb(45, 45, 45);
+  border-bottom-left-radius: 20px !important;
+  border-bottom-right-radius: 20px !important;
+}
+
+.MuiTablePagination-root {
+  color: white !important;
+}
+
+.MuiButtonBase-root {
+  color: white !important;
+}
+
+.MuiDataGrid-virtualScrollerContent {
+  background-color: #a9b6c1;
+}
+
+.MuiDataGrid-root{
+  border-radius: 20px !important;
+}
+
+/* Side Borders */
+
+.MuiDataGrid-cell{
+  border-right: 2px solid #3ea6ff;
+}
