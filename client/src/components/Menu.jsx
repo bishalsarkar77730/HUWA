@@ -73,7 +73,10 @@ const Menu = ({ darkMode, setDarkMode }) => {
             Home
           </Item>
         </Link>
-        <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+        <Link
+          to="/Add-company"
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
           <Item>
             <AddBusinessIcon />
             Add Company

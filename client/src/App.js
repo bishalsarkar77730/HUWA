@@ -16,6 +16,7 @@ import Editprofile from "./pages/UserProfile/Editprofile";
 import UserCompanies from "./pages/user/UserCompanies";
 import EditComapny from "./pages/user/UserEdits/EditComapny";
 import DeleteCompany from "./pages/user/UserEdits/DeleteCompany";
+import AddnewCompany from "./pages/user/AddnewCompany";
 
 const Container = styled.div`
   display: flex;
@@ -80,6 +81,11 @@ function App() {
                   exact
                   path="delete-company"
                   element={<DeleteCompany />}
+                ></Route>
+                <Route
+                  exact
+                  path="Add-company"
+                  element={<AddnewCompany />}
                 ></Route>
               </Routes>
             </Wrapper>
