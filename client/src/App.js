@@ -6,7 +6,7 @@ import { darkTheme, lightTheme } from "./utils/Theme";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // all pages import
-import Home from "./pages/Home";
+// import Home from "./pages/Home/Home";
 import SignIn from "./pages/SignIn";
 import AllCompanies from "./pages/admin/AllCompanies";
 import AllUsers from "./pages/admin/AllUsers";
@@ -42,15 +42,12 @@ function App() {
             <Navbar />
             <Wrapper>
               <Routes>
-                <Route path="/">
-                  <Route index element={<Home />} />
-                  <Route exact path="signin" element={<SignIn />} />
-                  <Route
-                    exact
-                    path="admin-allCompanies"
-                    element={<AllCompanies />}
-                  />
-                </Route>
+                <Route exact path="signin" element={<SignIn />}></Route>
+                <Route
+                  exact
+                  path="admin-allCompanies"
+                  element={<AllCompanies />}
+                ></Route>
                 <Route
                   exact
                   path="admin-allUsers"

@@ -1,2 +1,0 @@
-    "json-server": "json-server --watch src/Database/db.json --host 127.0.0.1 --port 3002",
-    "dev": "concurrently \"npm start\" \"npm run json-server\"",

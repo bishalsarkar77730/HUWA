@@ -2,27 +2,10 @@
 *::before,
 *::after,
 :root {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
-@import "https://fonts.googleapis.com/css?family=Overlock:400,400i,700|Oleo+Script";
-
-html,
-body {
-  height: 100%;
-}
-
-body {
-  color: #252934;
-  background: #fafafa;
-  font-size: 62.5%;
-  font-family: "Overlock", Arial, Helvetica, sans-serif;
-  overflow-x: hidden;
-}
-
-a,
+/* a,
 a:visited {
   color: #252934;
   font-size: 1.4rem;
@@ -33,7 +16,11 @@ a:visited {
 a:hover,
 a:active {
   color: #f300b4;
-}
+} */
+
+/* .Homepage{
+  z-index: -11111;
+} */
 
 /*****************
  *****************
@@ -55,7 +42,7 @@ a:active {
 #welcome-section::before {
   content: "";
   position: fixed;
-  background: url(../../utils/images/Stars.svg);
+  background: url(../../Assets/images/Stars.svg);
   background-attachment: fixed;
   width: 100%;
   min-height: 100vh;
@@ -78,7 +65,7 @@ a:active {
   position: absolute;
   bottom: -300px;
   left: 0;
-  background: url(../../utils/images/Trees.svg) bottom left repeat-x;
+  background: url(../../Assets/images/Trees.svg) bottom left repeat-x;
   background-size: cover;
   width: 100%;
   height: 80%;
@@ -101,7 +88,7 @@ a:active {
   position: absolute;
   bottom: 0;
   left: 0;
-  background: url(../../utils/images/Silhouette.svg) bottom left no-repeat;
+  background: url(../../Assets/images/Silhouette.svg) bottom left no-repeat;
   width: 50%;
   height: 50%;
   opacity: 0;
@@ -124,7 +111,7 @@ a:active {
   top: 0;
   right: 0;
   position: fixed;
-  background: url(../../utils/images/Moon.svg) right 150% no-repeat;
+  background: url(../../Assets/images/Moon.svg) right 150% no-repeat;
   background-size: 40% 40%;
   background-attachment: fixed;
   width: 100%;
@@ -230,7 +217,7 @@ a:active {
   background: #fafafa;
   clip-path: polygon(0 0, 20% 5%, 100% 0, 100% 100%, 80% 95%, 0 100%);
   z-index: 5;
-  background: #8e8b8b url(../../utils/images/about.jpg);
+  background: #8e8b8b url(../../Assets/images/about.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -330,7 +317,7 @@ a:active {
  *****************/
 
 #contact {
-  background: #181d23 url(../../utils/images/envelope.svg) no-repeat right;
+  background: #181d23 url(../../Assets/images/envelope.svg) no-repeat right;
   clip-path: polygon(0 0, 20% 100px, 100% 0, 100% 100%, 0 100%);
   color: #fafafa;
   min-height: 100vh;
@@ -383,7 +370,7 @@ a:active {
   margin-top: 1rem;
 }
 
-input,
+.homeContact,
 textarea {
   border: none;
   padding: 1rem;
@@ -393,10 +380,10 @@ textarea {
   transition: 200ms;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="text"]:not(output):not(:focus),
-input[type="email"]:not(output):not(:focus),
+.homeContact[type="text"],
+.homeContact[type="email"],
+.homeContact[type="text"]:not(output):not(:focus),
+.homeContact[type="email"]:not(output):not(:focus),
 textarea {
   border-bottom: 1px solid #fafafa;
   background: transparent;
@@ -406,15 +393,15 @@ textarea {
   outline: none;
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="text"]:not(output):focus,
-input[type="email"]:not(output):focus,
+.homeContact[type="text"]:focus,
+.homeContact[type="email"]:focus,
+.homeContact[type="text"]:not(output):focus,
+.homeContact[type="email"]:not(output):focus,
 textarea:focus {
   border-bottom: 1px solid #f300b4;
 }
 
-input[type="submit"] {
+.homeContact[type="submit"] {
   background: #f300b4;
   color: #fafafa;
   margin-top: 1rem;
@@ -422,8 +409,8 @@ input[type="submit"] {
   float: right;
 }
 
-input[type="submit"]:hover,
-input[type="submit"]:focus {
+.homeContact[type="submit"]:hover,
+.homeContact[type="submit"]:focus {
   cursor: pointer;
   color: #333;
   background: #fafafa;

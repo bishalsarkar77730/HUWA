@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import HuwaLogo from "../utils/img/logo.png";
+import HuwaLogo from "../Assets/logo.png";
 import HomeIcon from "@mui/icons-material/Home";
 import AddBusinessIcon from "@mui/icons-material/AddBusiness";
 import PreviewIcon from "@mui/icons-material/Preview";
