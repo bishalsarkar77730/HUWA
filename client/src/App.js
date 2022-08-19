@@ -3,10 +3,10 @@ import styled, { ThemeProvider } from "styled-components";
 import Menu from "./components/Menu";
 import Navbar from "./components/Navbar";
 import { darkTheme, lightTheme } from "./utils/Theme";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 // all pages import
-// import Home from "./pages/Home/Home";
+import Home from "./pages/Home/Home";
 import SignIn from "./pages/SignIn";
 import AllCompanies from "./pages/admin/AllCompanies";
 import AllUsers from "./pages/admin/AllUsers";
@@ -27,21 +27,22 @@ const Main = styled.div`
   background-color: ${({ theme }) => theme.bg};
 `;
 const Wrapper = styled.div`
-  padding: 22px 96px;
+  // padding: 22px 96px;
 `;
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
 
   return (
-    <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
-      <Container>
-        <BrowserRouter>
+    <>
+      <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+        <Container>
           <Menu darkMode={darkMode} setDarkMode={setDarkMode} />
           <Main>
             <Navbar />
             <Wrapper>
               <Routes>
+                <Route exact path="/" element={<Home />}></Route>
                 <Route exact path="signin" element={<SignIn />}></Route>
                 <Route
                   exact
@@ -87,9 +88,9 @@ function App() {
               </Routes>
             </Wrapper>
           </Main>
-        </BrowserRouter>
-      </Container>
-    </ThemeProvider>
+        </Container>
+      </ThemeProvider>
+    </>
   );
 }
 

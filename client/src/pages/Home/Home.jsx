@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "./Footer";
 import "./Home.css";
 
 const Home = () => {
@@ -54,8 +55,20 @@ const Home = () => {
               </div>
             </div>
             <form id="contact-form" action="#">
-              <input className="homeContact" placeholder="Name" name="name" type="text" required />
-              <input className="homeContact" placeholder="Email" name="email" type="email" required />
+              <input
+                className="homeContact"
+                placeholder="Name"
+                name="name"
+                type="text"
+                required
+              />
+              <input
+                className="homeContact"
+                placeholder="Email"
+                name="email"
+                type="email"
+                required
+              />
               <textarea placeholder="Message" type="text" name="message" />
               <input
                 className="button"
@@ -67,6 +80,7 @@ const Home = () => {
           </div>
         </section>
       </div>
+      <Footer />
     </>
   );
 };

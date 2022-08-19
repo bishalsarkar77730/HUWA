@@ -9,7 +9,7 @@ const Container = styled.div`
   position: absolute;
   top: 4%;
   left: 0;
-  background-color: #000000a7;
+  background-color: #181818;
   display: flex;
   align-items: center;
   justify-content: center;

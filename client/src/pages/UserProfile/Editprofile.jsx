@@ -8,7 +8,7 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   position: absolute;
-  top: 4%;
+  top: 0;
   left: 0;
   background-color: #000000a7;
   display: flex;
@@ -25,7 +25,7 @@ const Wrapper = styled.div`
   padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
   position: relative;
 `;
 

@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import styled from "styled-components";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
-import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+// import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/Slices/userSlice";
@@ -24,26 +24,26 @@ const Wrapper = styled.div`
   position: relative;
 `;
 
-const Search = styled.div`
-  width: 40%;
-  position: absolute;
-  left: 0px;
-  right: 0px;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-`;
+// const Search = styled.div`
+//   width: 40%;
+//   position: absolute;
+//   left: 0px;
+//   right: 0px;
+//   margin: auto;
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   padding: 5px;
+//   border: 1px solid #ccc;
+//   border-radius: 3px;
+// `;
 
-const Input = styled.input`
-  border: none;
-  background-color: transparent;
-  outline: none;
-  color: ${({ theme }) => theme.text};
-`;
+// const Input = styled.input`
+//   border: none;
+//   background-color: transparent;
+//   outline: none;
+//   color: ${({ theme }) => theme.text};
+// `;
 
 const Button = styled.button`
   padding: 5px 15px;
@@ -66,13 +66,6 @@ const User = styled.div`
   color: ${({ theme }) => theme.text};
 `;
 
-const Avatar = styled.img`
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background-color: #999;
-`;
-
 const Navbar = () => {
   const navigate = useNavigate();
   const { currentUser } = useSelector((state) => state.user);
@@ -85,16 +78,21 @@ const Navbar = () => {
   return (
     <Container>
       <Wrapper>
-        <Search>
+        {/* <Search>
           <Input placeholder="Search" />
           <SearchOutlinedIcon />
-        </Search>
+        </Search> */}
         <Link to="signin" style={{ textDecoration: "none" }}>
           {currentUser ? (
             <User>
               <Button onClick={UserLogOut}>Log out</Button>
               {currentUser.firstname}
-              <Avatar />
+              <img
+                style={{ width: "32px", height: "32px", top: "0" }}
+                alt="user"
+                id="userImage"
+                src="https://xsgames.co/randomusers/assets/avatars/pixel/48.jpg"
+              ></img>
             </User>
           ) : (
             <Link to="signin" style={{ textDecoration: "none" }}>

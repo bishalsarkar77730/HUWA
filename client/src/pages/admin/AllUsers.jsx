@@ -97,7 +97,7 @@ const AllUsers = () => {
   }, []);
 
   return (
-    <Box sx={{ height: "73.8vh", width: "100%" }}>
+    <Box sx={{ height: "90vh", width: "100%", padding: "22px 96px" }}>
       <DataGrid
         getRowId={(row) => row._id}
         rows={tableData}

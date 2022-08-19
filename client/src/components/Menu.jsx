@@ -7,7 +7,7 @@ import PreviewIcon from "@mui/icons-material/Preview";
 import PersonIcon from "@mui/icons-material/Person";
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import FactoryIcon from "@mui/icons-material/Factory";
-import SettingsBrightnessOutlinedIcon from "@mui/icons-material/SettingsBrightnessOutlined";
+// import SettingsBrightnessOutlinedIcon from "@mui/icons-material/SettingsBrightnessOutlined";
 import { Link } from "react-router-dom";
 const Container = styled.div`
   flex: 1;
@@ -122,10 +122,10 @@ const Menu = ({ darkMode, setDarkMode }) => {
           </Item>
         </Link>
         <Hr />
-        <Item onClick={() => setDarkMode(!darkMode)}>
+        {/* <Item onClick={() => setDarkMode(!darkMode)}>
           <SettingsBrightnessOutlinedIcon />
           {darkMode ? "Light" : "Dark"} Mode
-        </Item>
+        </Item> */}
       </Wrapper>
     </Container>
   );

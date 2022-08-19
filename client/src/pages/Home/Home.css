@@ -167,11 +167,12 @@ a:active {
 }
 
 #welcome-section .container h1 .line:last-child {
-  margin-left: 2rem;
+  margin-left: 4rem;
 }
 
 .line {
   display: block;
+  margin-top: 1rem;
 }
 
 .color {
@@ -315,6 +316,36 @@ a:active {
    CONTACT STYLES
  *****************
  *****************/
+.button {
+  background-color: #c2fbd7;
+  border-radius: 100px;
+  box-shadow: rgba(44, 187, 99, 0.2) 0 -25px 18px -14px inset,
+    rgba(44, 187, 99, 0.15) 0 1px 2px, rgba(44, 187, 99, 0.15) 0 2px 4px,
+    rgba(44, 187, 99, 0.15) 0 4px 8px, rgba(44, 187, 99, 0.15) 0 8px 16px,
+    rgba(44, 187, 99, 0.15) 0 16px 32px;
+  color: green;
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-top: 40px;
+}
+
+.button:hover {
+  box-shadow: rgba(44, 187, 99, 0.35) 0 -25px 18px -14px inset,
+    rgba(44, 187, 99, 0.25) 0 1px 2px, rgba(44, 187, 99, 0.25) 0 2px 4px,
+    rgba(44, 187, 99, 0.25) 0 4px 8px, rgba(44, 187, 99, 0.25) 0 8px 16px,
+    rgba(44, 187, 99, 0.25) 0 16px 32px;
+  transform: scale(1.05) rotate(-1deg);
+}
 
 #contact {
   background: #181d23 url(../../Assets/images/envelope.svg) no-repeat right;
@@ -443,43 +474,5 @@ textarea:focus {
   #contact {
     clip-path: polygon(0 0, 20% 5%, 100% 0, 100% 100%, 0 100%);
     padding: 0;
-  }
-}
-
-/*****************
- *****************
-   FOOTER STYLES
- *****************
- *****************/
-
-footer {
-  font-size: 1rem;
-  display: flex;
-  justify-content: center;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 50px;
-  background: #fafafa;
-  z-index: 1;
-}
-
-footer .wrapper {
-  display: flex;
-  width: 100%;
-  padding: 2rem;
-  max-width: 1400px;
-  align-items: center;
-  justify-content: space-between;
-}
-
-@media only screen and (max-width: 649px) {
-  footer .wrapper {
-    flex-direction: column;
-  }
-
-  footer .wrapper h3 {
-    padding-bottom: 0.8rem;
   }
 }
