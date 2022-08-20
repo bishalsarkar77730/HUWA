@@ -1,12 +1,28 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { logout } from "../../redux/Slices/userSlice";
 import "./UserProfile.css";
 
 const Profile = () => {
   const { currentUser } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const proff = currentUser.proffession;
   const proff2 = proff.toString(", ");
+  const handleDelete = async () => {
+    if (window.confirm("Are you sure you want to Delete Your Account")) {
+      await axios.delete(`/user/${currentUser._id}`);
+      await axios.post("/auth/signout");
+      dispatch(logout());
+      navigate("/signin");
+    } else {
+      alert("Cancel Deletion")
+      navigate("/");
+    }
+  };
 
   return (
     <>
@@ -42,13 +58,18 @@ const Profile = () => {
             <li>{currentUser.role}</li>
           </ul>
         </div>
-        <Link
-          id="contactBtn"
-          to="/Edit-profile"
-          style={{ textDecoration: "none", color: "inherit" }}
-        >
-          Edit
-        </Link>
+        <div className="buttonss" style={{ display: "flex" }}>
+          <Link
+            id="contactBtn"
+            to="/Edit-profile"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            Edit
+          </Link>
+          <button id="contactBtn" onClick={handleDelete}>
+            Delete Account
+          </button>
+        </div>
       </div>
     </>
   );
