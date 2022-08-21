@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -10,8 +10,6 @@ const Profile = () => {
   const { currentUser } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const proff = currentUser.proffession;
-  const proff2 = proff.toString(", ");
   const handleDelete = async () => {
     if (window.confirm("Are you sure you want to Delete Your Account")) {
       await axios.delete(`/user/${currentUser._id}`);
@@ -19,11 +17,23 @@ const Profile = () => {
       dispatch(logout());
       navigate("/signin");
     } else {
-      alert("Cancel Deletion")
+      alert("Cancel Deletion");
       navigate("/");
     }
   };
 
+  const [userdata, setUserdata] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const resdata = await axios.get(`/user/${currentUser._id}`);
+        setUserdata(resdata.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, [currentUser]);
   return (
     <>
       <div id="card">
@@ -33,7 +43,7 @@ const Profile = () => {
           src="https://xsgames.co/randomusers/assets/avatars/pixel/48.jpg"
         ></img>
         <i className="fa fa-gamepad" id="badge"></i>
-        <h4 id="playerName">{currentUser.username}</h4>
+        <h4 id="playerName">{userdata.username}</h4>
         <div id="states">
           <ul id="info">
             <li>Full name</li>
@@ -47,15 +57,15 @@ const Profile = () => {
           </ul>
           <ul id="values">
             <li>
-              {currentUser.firstname} {currentUser.lastname}
+              {userdata.firstname} {userdata.lastname}
             </li>
-            <li>+91-{currentUser.number}</li>
-            <li>{currentUser.address}</li>
-            <li>{currentUser.adharnum}</li>
-            <li>{currentUser.Sallaryaspect}</li>
-            <li>{currentUser.employment}</li>
-            <li>{proff2}</li>
-            <li>{currentUser.role}</li>
+            <li>+91-{userdata.number}</li>
+            <li>{userdata.address}</li>
+            <li>{userdata.adharnum}</li>
+            <li>{userdata.Sallaryaspect}</li>
+            <li>{userdata.employment}</li>
+            <li>{userdata.proffession}</li>
+            <li>{userdata.role}</li>
           </ul>
         </div>
         <div className="buttonss" style={{ display: "flex" }}>

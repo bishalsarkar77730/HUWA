@@ -3,6 +3,7 @@ import styled from "styled-components";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 const Container = styled.div`
   width: 100%;
@@ -59,31 +60,44 @@ const Button = styled.button`
 `;
 const Editprofile = () => {
   const { currentUser } = useSelector((state) => state.user);
-  const proff = currentUser.proffession;
-  const proff2 = proff.toString(", ");
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [contact, setContact] = useState("");
   const [address, setAddress] = useState("");
-  const [adhar, setAdhar] = useState("");
+  const [adharnum, setAdhar] = useState("");
   const [employment, setEmployment] = useState("");
-  const [sallary, setSallary] = useState("");
+  const [Sallaryaspect, setSallary] = useState("");
   const [proffession, setProffession] = useState("");
+  const [userdata, setUserdata] = useState("");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const resdata = await axios.get(`/user/${currentUser._id}`);
+        setUserdata(resdata.data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    fetchData()
+  },[currentUser])
+
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
       let payload = {
-        firstname: firstname === "" ? currentUser.firstname : firstname,
-        lastname: lastname === "" ? currentUser.lastname : lastname,
-        contact: contact === "" ? currentUser.number : contact,
-        address: address === "" ? currentUser.address : address,
-        adhar: adhar === "" ? currentUser.adharnum : adhar,
-        employment: employment === "" ? currentUser.employment : employment,
-        sallary: sallary === "" ? currentUser.Sallaryaspect : sallary,
-        proffession: proffession === "" ? currentUser.proffession : proffession,
+        firstname: firstname === "" ? userdata.firstname : firstname,
+        lastname: lastname === "" ? userdata.lastname : lastname,
+        contact: contact === "" ? userdata.number : contact,
+        address: address === "" ? userdata.address : address,
+        adharnum: adharnum === "" ? userdata.adharnum : adharnum,
+        employment: employment === "" ? userdata.employment : employment,
+        Sallaryaspect:
+          Sallaryaspect === "" ? userdata.Sallaryaspect : Sallaryaspect,
+        proffession: proffession === "" ? userdata.proffession : proffession,
       };
-      await axios.put(`/user/${currentUser._id}`, payload);
+      await axios.put(`/user/${userdata._id}`, payload);
       navigate("/profile");
     } catch (error) {
       console.log(error);
@@ -95,42 +109,42 @@ const Editprofile = () => {
         <Title>Edit Your Self</Title>
         <Input
           type="text"
-          placeholder={currentUser.firstname}
+          placeholder={userdata.firstname}
           onChange={(e) => setFirstname(e.target.value)}
         />
         <Input
           type="text"
-          placeholder={currentUser.lastname}
+          placeholder={userdata.lastname}
           onChange={(e) => setLastname(e.target.value)}
         />
         <Input
           type="text"
-          placeholder={currentUser.number}
+          placeholder={userdata.number}
           onChange={(e) => setContact(e.target.value)}
         />
         <Input
           type="text"
-          placeholder={currentUser.address}
+          placeholder={userdata.address}
           onChange={(e) => setAddress(e.target.value)}
         />
         <Input
           type="text"
-          placeholder={currentUser.adharnum}
+          placeholder={userdata.adharnum}
           onChange={(e) => setAdhar(e.target.value)}
         />
         <Input
           type="text"
-          placeholder={currentUser.employment}
+          placeholder={userdata.employment}
           onChange={(e) => setEmployment(e.target.value)}
         />
         <Input
           type="text"
-          placeholder={currentUser.Sallaryaspect}
+          placeholder={userdata.Sallaryaspect}
           onChange={(e) => setSallary(e.target.value)}
         />
         <Input
           type="text"
-          placeholder={proff2}
+          placeholder={userdata.proffession}
           onChange={(e) => setProffession(e.target.value)}
         />
         <Button onClick={handleUpdate}>Update Data</Button>
