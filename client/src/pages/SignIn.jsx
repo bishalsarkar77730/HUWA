@@ -81,16 +81,17 @@ const SignIn = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("/auth/signup", {
+      const res = await axios.post("/auth/signup", {
         username,
         firstname,
         lastname,
         number,
         password,
       });
+      alert(res.data)
       navigate("/");
     } catch (error) {
-      console.log(error);
+      alert(error.response.data.message);
     }
   };
 
