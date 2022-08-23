@@ -1,8 +1,31 @@
 import React from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import Footer from "./Footer";
 import "./Home.css";
 
 const Home = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const navigate = useNavigate();
+
+  const handlecontact = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post("/contactus", {
+        name,
+        email,
+        message,
+      });
+      alert(res.data.message)
+      navigate("/signin");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <div className="Homepage">
@@ -58,24 +81,23 @@ const Home = () => {
               <input
                 className="homeContact"
                 placeholder="Name"
-                name="name"
+                onChange={(e) => setName(e.target.value)}
                 type="text"
                 required
               />
               <input
                 className="homeContact"
                 placeholder="Email"
-                name="email"
+                onChange={(e) => setEmail(e.target.value)}
                 type="email"
                 required
               />
-              <textarea placeholder="Message" type="text" name="message" />
-              <input
-                className="button"
-                id="submit"
-                value="Submit"
-                type="submit"
+              <textarea
+                placeholder="Message"
+                type="text"
+                onChange={(e) => setMessage(e.target.value)}
               />
+              <input className="button" onClick={handlecontact} type="submit" />
             </form>
           </div>
         </section>

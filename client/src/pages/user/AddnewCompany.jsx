@@ -58,27 +58,27 @@ const Button = styled.button`
 `;
 
 const AddnewCompany = () => {
-    const [companyname, setCompanyname] = useState("");
-    const [companyaddress, setCompanyaddress] = useState("");
-    const [permonthSallary, setpermonthSallary] = useState("");
-    const [startingDate, setStartingdate] = useState("");
-    const [endingDate, setEndingdate] = useState("");
-    const navigate = useNavigate();
-    const handleADD = async (e) => {
-        e.preventDefault();
-        try {
-            await axios.post("/company/add", {
-              companyname,
-              companyaddress,
-              permonthSallary,
-              startingDate,
-              endingDate,
-            });
-            navigate("/user-companies");
-        } catch (error) {
-            console.log(error)
-        }
+  const [companyname, setCompanyname] = useState("");
+  const [companyaddress, setCompanyaddress] = useState("");
+  const [permonthSallary, setpermonthSallary] = useState("");
+  const [startingDate, setStartingdate] = useState("");
+  const [endingDate, setEndingdate] = useState("");
+  const navigate = useNavigate();
+  const handleADD = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post("/company/add", {
+        companyname,
+        companyaddress,
+        permonthSallary,
+        startingDate,
+        endingDate,
+      });
+      navigate("/user-companies");
+    } catch (error) {
+      console.log(error);
     }
+  };
   return (
     <Container>
       <Wrapper>
