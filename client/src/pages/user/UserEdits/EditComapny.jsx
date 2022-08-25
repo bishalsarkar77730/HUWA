@@ -87,7 +87,10 @@ const EditComapny = () => {
       await axios.put(`/company/${serialnum}`, payload);
       navigate("/user-companies");
     } catch (error) {
-      console.log(error);
+      alert(
+        "please copy the serial number of the company you want to delete and paste it here any try again"
+      );
+      navigate("/user-companies");
     }
   };
   return (

@@ -6,6 +6,7 @@ import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { useNavigate } from "react-router-dom";
 
 const columns = [
   { field: "_id", headerName: "Serial number", width: 250 },
@@ -65,6 +66,7 @@ const columns = [
 
 const UserCompanies = () => {
   const [tableData, setTableData] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -72,11 +74,12 @@ const UserCompanies = () => {
         const Datares = await axios.get("/company/user/Companys");
         setTableData(Datares.data);
       } catch (error) {
-        console.log(error);
+        alert(error.response.data.message);
+        navigate("/signin");
       }
     };
     fetchData();
-  }, []);
+  }, [navigate]);
   return (
     <Box sx={{ height: "90vh", width: "100%", padding: "22px 96px" }}>
       <DataGrid

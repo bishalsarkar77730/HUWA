@@ -75,13 +75,13 @@ const Editprofile = () => {
     const fetchData = async () => {
       try {
         const resdata = await axios.get(`/user/${currentUser._id}`);
-        setUserdata(resdata.data)
+        setUserdata(resdata.data);
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
-    }
-    fetchData()
-  },[currentUser])
+    };
+    fetchData();
+  }, [currentUser]);
 
   const handleUpdate = async (e) => {
     e.preventDefault();
@@ -100,7 +100,8 @@ const Editprofile = () => {
       await axios.put(`/user/${userdata._id}`, payload);
       navigate("/profile");
     } catch (error) {
-      console.log(error);
+      alert("Your are not logged in Please login first");
+      navigate("/signin");
     }
   };
   return (
@@ -109,42 +110,42 @@ const Editprofile = () => {
         <Title>Edit Your Self</Title>
         <Input
           type="text"
-          placeholder={userdata.firstname}
+          placeholder="First Name"
           onChange={(e) => setFirstname(e.target.value)}
         />
         <Input
           type="text"
-          placeholder={userdata.lastname}
+          placeholder="Last Name"
           onChange={(e) => setLastname(e.target.value)}
         />
         <Input
           type="text"
-          placeholder={userdata.number}
+          placeholder="Mobile number"
           onChange={(e) => setContact(e.target.value)}
         />
         <Input
           type="text"
-          placeholder={userdata.address}
+          placeholder="Address"
           onChange={(e) => setAddress(e.target.value)}
         />
         <Input
           type="text"
-          placeholder={userdata.adharnum}
+          placeholder="Adhar number"
           onChange={(e) => setAdhar(e.target.value)}
         />
         <Input
           type="text"
-          placeholder={userdata.employment}
+          placeholder="Employment (employed, unemployed)"
           onChange={(e) => setEmployment(e.target.value)}
         />
         <Input
           type="text"
-          placeholder={userdata.Sallaryaspect}
+          placeholder="Aspected Sallary"
           onChange={(e) => setSallary(e.target.value)}
         />
         <Input
           type="text"
-          placeholder={userdata.proffession}
+          placeholder="Proffession (seprated by , coma)"
           onChange={(e) => setProffession(e.target.value)}
         />
         <Button onClick={handleUpdate}>Update Data</Button>

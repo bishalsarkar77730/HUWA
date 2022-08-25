@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../Styles/Datagrid.css";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
@@ -40,18 +41,19 @@ const columns = [
 
 const AllCompanies = () => {
   const [tableData, setTableData] = useState([]);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchData = async () => {
       try {
         const Datares = await axios.get("/company");
         setTableData(Datares.data);
       } catch (error) {
-        console.log(error);
+        alert("Your are not an Admin please login as Admin and Try again");
+        navigate("/");
       }
     };
     fetchData();
-  }, []);
+  }, [navigate]);
   return (
     <Box sx={{ height: "90vh", width: "100%", padding: "22px 96px" }}>
       <DataGrid

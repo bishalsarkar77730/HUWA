@@ -68,7 +68,8 @@ const EdituserRole = () => {
       });
       navigate("/admin-allUsers");
     } catch (error) {
-      console.log(error);
+      alert("Your are not an Admin please login as Admin and Try again");
+      navigate("/");
     }
   };
   return (

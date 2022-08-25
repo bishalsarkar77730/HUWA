@@ -29,11 +29,12 @@ const Profile = () => {
         const resdata = await axios.get(`/user/${currentUser._id}`);
         setUserdata(resdata.data);
       } catch (error) {
-        console.log(error);
+        alert("Your are not logged in Please login first");
+        navigate("/signin");
       }
     };
     fetchData();
-  }, [currentUser]);
+  }, [currentUser, navigate]);
   return (
     <>
       <div id="card">

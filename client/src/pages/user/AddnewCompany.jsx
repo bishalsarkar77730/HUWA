@@ -76,7 +76,8 @@ const AddnewCompany = () => {
       });
       navigate("/user-companies");
     } catch (error) {
-      console.log(error);
+      alert(error.response.data.message);
+      navigate("/signin");
     }
   };
   return (
