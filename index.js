@@ -1,9 +1,9 @@
 import express from "express";
 import mongoose from "mongoose";
-import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 import cors from "cors";
+import dotenv from "dotenv";
 
 // import All Routes
 import authRoutes from "./server/Routes/auth_routes.js";
@@ -12,8 +12,9 @@ import companyRoutes from "./server/Routes/company_routes.js";
 import contact from "./server/Routes/contact_routes.js";
 
 const app = express();
-dotenv.config();
-
+if (process.env.NODE_ENV !== "PRODUCTION") {
+  dotenv.config();
+}
 const connect = () => {
   mongoose
     .connect(process.env.DB)
@@ -30,14 +31,20 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use("/api/auth", authRoutes);
-app.use("/api/user", userRoutes);
-app.use("/api/company", companyRoutes);
+app.use("/auth", authRoutes);
+app.use("/user", userRoutes);
+app.use("/company", companyRoutes);
 app.use("/api", contact);
 
-app.listen(process.env.LOCAL_HOST_PORT, () => {
+app.use(express.static("client/build"));
+import path from "path";
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+});
+
+app.listen(process.env.PORT || 3001, () => {
   connect();
   console.log(
-    `server is running on http://localhost:${process.env.LOCAL_HOST_PORT}`
+    `server is running on http://localhost:${process.env.PORT || 3001}`
   );
 });

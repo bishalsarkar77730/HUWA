@@ -14,7 +14,7 @@ const Home = () => {
   const handlecontact = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("/contactus", {
+      const res = await axios.post("/api/contactus", {
         name,
         email,
         message,
